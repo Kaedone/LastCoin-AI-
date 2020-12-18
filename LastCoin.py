@@ -12,9 +12,9 @@ class LastCoin_game(TwoPlayersGame):
         self.players = players
         self.nplayer = 1
         #  Определяем кол-во монет используемых для игры
-        self.num_coins = int(input("Введите кол-во монет, которые будут используемых для игры ", end=" "))
+        self.num_coins = int(input("Введите кол-во монет, которые будут используемых для игры "))
         # Максимальное кол-во монет, которое игрок может взять за ход
-        self.max_coins = int(input("Введите кол-во монет, которые можно взять за 1 ход ", end=" "))
+        self.max_coins = int(input("Введите кол-во монет, которые можно взять за 1 ход "))
 
         # Определяем все возможные ходы
         def possible_moves(self):
@@ -40,13 +40,13 @@ class LastCoin_game(TwoPlayersGame):
         def show(self):
             print(self.num_coins, 'монеток осталось в стоп0чке')
 
-        if __name__ == "__main__":
-            tt = TT()
-            LastCoin_game.ttentry = lambda self: self.num_coins
-        # Все решения игры:
-        r, d, m = id_solve(LastCoin_game,
-                           range(2, 20), win_score=100, tt=tt)
-        print(r, d, m)
-        # Решаем кому первому ход делать
-        game = LastCoin_game([AI_Player(tt), Human_Player()])
-        game.play()
+
+if __name__ == "__main__":
+    tt = TT()
+    LastCoin_game.ttentry = lambda self: self.num_coins
+    # Все решения игры:
+    r, d, m = id_solve(LastCoin_game, range(2, 20), win_score=100, tt=tt)
+    print(r, d, m)
+    # Решаем кому первому ход делать
+    game = LastCoin_game([AI_Player(tt), Human_Player()])
+    game.play()
